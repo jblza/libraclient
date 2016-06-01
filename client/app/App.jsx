@@ -1,13 +1,10 @@
-import React from 'react';
-import {render} from 'react-dom';
+
+import Login from './Login.jsx';
 
 var App = React.createClass({
 	render: function() {
-		return <div>Oh shit! Whatupp!</div>;
+		return <Login />;
 	}
 });
 
-ReactDOM.render(
-	<App />,
-	document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'));
