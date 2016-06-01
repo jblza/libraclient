@@ -1,0 +1,6 @@
+## Mac OSX ##
+.DS_Store
+
+## Dependencies ##
+node_modules
+
