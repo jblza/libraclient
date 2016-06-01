@@ -1,9 +1,13 @@
-
+import {Link, IndexLink} from 'react-router';
 import Login from './Login.jsx';
 
 var App = React.createClass({
 	render: function() {
-		return <Login />;
+		{Auth.isUserAuthenticated() ? (
+			<div>List of SHit</div>
+		) : (
+			<Login />
+		)}
 	}
 });
 
