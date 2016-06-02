@@ -15,6 +15,7 @@ class TransactionList extends React.Component{
 
 	componentDidMount() {
 		this.getData();
+		window.transId = setInterval(this.getData.bind(this), 5000);
 	}
 
 	getData() {
@@ -24,10 +25,12 @@ class TransactionList extends React.Component{
 		    url: 'https://api.libratax.com/v1/account/transactions',
 		    data: {
 		        token: Auth.getToken(),
+		        page: "1",
+		        per_page: "50"
 		    },
 		    success: function(data) {
 		        this.setState({transactions: data.transactions});
-		        //console.log(this.state.transactions);
+		        console.log("updated transactions");
 		    }.bind(this),
 		    error: function(xhr, status, err) {
 		        console.error(status, err.toString());
@@ -39,7 +42,7 @@ class TransactionList extends React.Component{
 		return (
 			<div>
 				<h1>Transactions</h1>
-				<h3>Date   Amount   Asset   Value   Type</h3>
+				<h3>Date  --  Destination  --  Amount  --  Asset  --  Value  --  Type</h3>
 				<List data={this.state.transactions}/>
 			</div>
 		);

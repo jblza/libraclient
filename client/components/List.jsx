@@ -3,7 +3,7 @@ var List = React.createClass({
         return (<div>
         { this.props.data.map(function(item) {
                 return (
-                	<div>{item.date}   {item.amount}   {item.asset}   {item.fair_value}   {item.tax_type}</div>
+                	<div>{item.date}  --  {item.destination}  -- {item.amount}  --  {item.asset}  --  {item.fair_value}  --  {item.tax_type}</div>
                 );
             })
         }

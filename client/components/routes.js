@@ -21,6 +21,14 @@ const routes = {
 		{
 			path: '/login',
 			component: Login
+		},
+		{
+			path: '/logout',
+			onEnter: (nextState, replaceState) => {
+				Auth.deauthenticateUser();
+				clearInterval(window.transId);
+				replaceState(null, '/');
+			}
 		}
 	]
 };
