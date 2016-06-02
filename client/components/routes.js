@@ -2,6 +2,7 @@ import App from './App.jsx';
 import Main from './Main.jsx';
 import Login from './Login.jsx';
 import TransactionList from './TransactionList.jsx';
+import Auth from './Auth.js';
 
 const routes = {
 
@@ -9,7 +10,13 @@ const routes = {
 	childRoutes: [
 		{
 			path: '/',
-			component: TransactionList
+			getComponent: (location, callback) => {
+				if (Auth.isUserAuthenticated()) {
+					callback(null, TransactionList);
+				} else {
+					callback(null, Login);
+				}
+			}
 		},
 		{
 			path: '/login',
