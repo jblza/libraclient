@@ -2,10 +2,10 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, './client/public');
-var APP_DIR = path.resolve(__dirname, './client/app');
+var APP_DIR = path.resolve(__dirname, './client/components');
 
 var config = {
-  entry: APP_DIR + '/App.jsx',
+  entry: ['./client/components/App.jsx'],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -15,7 +15,11 @@ var config = {
       {
         test : /\.jsx?/,
         include : APP_DIR,
-        loader : 'babel'
+        loader : 'babel',
+        query:
+        {
+          presets:['es2015', 'react']
+        }
       }
     ]
   }
