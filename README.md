@@ -2,4 +2,4 @@
 
 -run "npm run build" from cli to bundle files
 
-index.html to open client 
+client/index.html to open client 
